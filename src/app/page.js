@@ -13,7 +13,7 @@ export default function Home() {
         <Homedesc />
       </div>
       <div className="ddivcontent dbodycontent" id="dtextcontentH">
-        <p>This is some text content for the home page.</p>
+        <p>This is some text content for the home.</p>
       </div>
       <div className="ddivcontent dtailcontent" id="ddetailcontentH">
         <p>Here you can find more details about the website.</p>
