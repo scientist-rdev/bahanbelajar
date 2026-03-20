@@ -1,26 +1,238 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #56ee51;
+  --color-secondary: rgb(255, 255, 255);
+  --color-tertiary: black;
+  --color-primary-hover: #b3ff00;
+  --color-tertiary-hover: #3db56b;
+  --border-primary: rgba(255, 255, 255, 0.67) solid 1px;
+  --border-primary--smdevice: rgba(255, 255, 255, 0.67) solid 3px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+html,
+body {
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+  padding: 0px;
+  margin: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+#dnavbar {
+  z-index: 1000000000000;
+  border-bottom: var(--border-primary);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background-color: var(--color-primary);
+  display: flex;
+
+  a {
+    margin-left: 3vw;
+    font-size: 3vh;
+    color: var(--color-secondary);
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    font-weight: 600;
+    transform: scale(1.1);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+#dcontentH {
+  height: 100vh;
+
+  #ddesccontentH {
+    height: auto;
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: var(--border-primary);
+
+    div {
+      color: var(--color-primary);
+      font-size: 3vh;
+      margin-top: 10vw;
+      margin-bottom: 0;
+      font-family: var(--font-inter);
+      text-align: center;
+      font-weight: 700;
+      text-shadow: var(--color-primary) 0px 0px 5px;
+
+      span {
+        position: relative;
+        cursor: default;
+        transition: all 0.3s ease;
+      }
+
+      span:hover {
+        color: var(--color-primary-hover);
+      }
+    }
+
+    #tcontent1 {
+      font-size: 2vh;
+      font-family: var(--font-inter);
+      width: 90vw;
+      height: 19vh;
+      overflow: auto;
+      color: var(--color-tertiary);
+    }
+  }
+
+  #dtextcontentH {
+    height: 105vh;
+    background-color: var(--color-secondary);
+    font-family: var(--font-inter);
+    font-size: 3vh;
+    color: var(--color-primary);
+  }
+
+  #ddetailcontentH {
+    border: var(--border-primary);
+    display: flex;
+    justify-content: center;
+    height: 35vh;
+    background: var(--color-primary);
+    font-family: var(--font-inter);
+    font-size: 3vh;
+    color: var(--color-secondary);
+  }
+}
+
+
+@media (min-width: 515px) and (max-width: 1024px) {
+  #dnavbar {
+    a {
+      font-size: 4vh;
+    }
+  }
+
+  #dcontentH {
+    #ddesccontentH {
+      div {
+        margin-top: 7vh;
+        margin-bottom: 0.5vh;
+        font-size: 4vh;
+      }
+
+      #tcontent1 {
+        width: 80vw;
+        font-size: 2vh;
+      }
+    }
+
+    #dtextcontentH {
+      font-size: 4vh;
+    }
+
+    #ddetailcontentH {
+      font-size: 4vh;
+    }
+
+  }
+}
+
+@media (min-width: 1025px) {
+  #dnavbar {
+    a {
+      font-size: 5vh;
+    }
+  }
+
+  #dcontentH {
+    #ddesccontentH {
+      div {
+        margin-top: 10vh;
+        margin-bottom: 1vh;
+        font-size: 7.5vh;
+      }
+
+      #tcontent1 {
+        width: 80vw;
+        font-size: 4vh;
+      }
+    }
+
+    #dtextcontentH {
+      font-size: 4vh;
+    }
+
+    #ddetailcontentH {
+      font-size: 4vh;
+    }
+  }
+}
+
+@media (max-height: 515px) and (min-width: 515px) {
+  #dnavbar {
+    border-bottom: var(--border-primary--smdevice);
+    a {
+      font-size: 7vh;
+    }
+  }
+
+  #dcontentH {
+    #ddesccontentH {
+      div {
+        margin-top: 10vh;
+        margin-bottom: 0.5vh;
+        font-size: 10vh;
+      }
+
+      #tcontent1 {
+        width: 90vw;
+        font-size: 5vh;
+        height: 20vw;
+      }
+    }
+
+    #dtextcontentH {
+      font-size: 3vh;
+    }
+
+    #ddetailcontentH {
+      border-top: var(--border-primary--smdevice);
+      font-size: 3vh;
+    }
+  }
+}
+
+@media (min-height: 516px) and (max-height: 768px) and (min-width: 515px) {
+  #dnavbar {
+    border-bottom: var(--border-primary--smdevice);
+    a {
+      font-size: 7vh;
+    }
+  }
+
+  #dcontentH {
+    #ddesccontentH {
+      div {
+        margin-top: 13vh;
+        margin-bottom: 0.5vh;
+        font-size: 9vh;
+      }
+
+      #tcontent1 {
+        width: 90vw;
+        font-size: 5vh;
+        height: 20vw;
+      }
+    }
+
+    #dtextcontentH {
+      font-size: 3vh;
+    }
+
+    #ddetailcontentH {
+      border-top: var(--border-primary--smdevice);
+      font-size: 3vh;
+    }
+  }
 }
